@@ -1,0 +1,50 @@
+{
+    "name": "wave/registrar-importer-craft",
+    "description": "A plugin for importing Excel files",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "registrarimportercraft"
+    ],
+    "support": {
+        "docs": "https://github.com/tdlacct/registrar-importer-craft/blob/master/README.md",
+        "issues": "https://github.com/tdlacct/registrar-importer-craft/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "T Luce",
+            "homepage": "https://tdlacct.github.io/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^4.0.0",
+        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers"
+    },
+    "require-dev": {
+      "craftcms/cms": "^4.0.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "wave\\registrarimportercraft\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "RegistrarImporterCraft",
+        "handle": "registrar-importer-craft",
+        "developer": "T Luce",
+        "developerUrl": "https://tdlacct.github.io/",
+        "documentationUrl": "https://github.com/tdlacct/registrar-importer-craft/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/tdlacct/registrar-importer-craft/master/CHANGELOG.md",
+        "components": {
+            "registrarImporterCraftService": "wave\\registrarimportercraft\\services\\RegistrarImporterCraftService"
+        },
+        "class": "wave\\registrarimportercraft\\RegistrarImporterCraft"
+    }
+}
