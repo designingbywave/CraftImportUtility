@@ -1,16 +1,8 @@
 <?php
-/**
- * RegistrarImporterCraft plugin for Craft CMS 3.x
- *
- * A plugin for importing Excel files
- *
- * @link      https://tdlacct.github.io/
- * @copyright Copyright (c) 2023 T Luce
- */
 
-namespace wave\registrarimportercraft\controllers;
+namespace wavedesign\crafthrcommencementimportutility\controllers;
 
-use wave\registrarimportercraft\RegistrarImporterCraft;
+use wavedesign\crafthrcommencementimportutility\ImportUtility;
 
 use Craft;
 use craft\web\Controller;
@@ -97,9 +89,9 @@ class DefaultController extends Controller
      *
      * @return mixed
      */
-    public function actionDoSomething()
+    public function actionSomething()
     {
-        $result = 'Welcome to the DefaultController actionDoSomething() method';
+        $result = 'Welcome to the new Craft plugin';
 
         return $result;
     }
@@ -107,7 +99,7 @@ class DefaultController extends Controller
     public function actionConvert(string $path) {
         //$path = Craft::$app->request->getBodyParam('filepath');
         
-        $services = RegistrarImporterCraft::getInstance()->CraftService;
+        $services = ImportUtility::getInstance()->CraftService;
         $result = $services->excelToArray($path);
 
         return $result;
@@ -117,7 +109,7 @@ class DefaultController extends Controller
         $data = Craft::$app->request->getBodyParam('data');
         $title = Craft::$app->request->getBodyParam('title');
         $mode = Craft::$app->request->getBodyParam('datamode');
-        $services = RegistrarImporterCraft::getInstance()->CraftService;
+        $services = ImportUtility::getInstance()->CraftService;
 
         if ($mode == "honor-roll") {
             $htmloutput = $services->sortHonorRoll($data,$title,false);
@@ -164,3 +156,4 @@ class DefaultController extends Controller
     
     
 }
+

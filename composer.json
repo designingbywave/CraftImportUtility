@@ -1,50 +1,41 @@
 {
-    "name": "wave/registrar-importer-craft",
-    "description": "A plugin for importing Excel files",
+    "name": "wave-design/craft-hr-commencement-import-utility",
+    "description": "Convert XLSX to HTML",
     "type": "craft-plugin",
-    "version": "1.0.0",
-    "keywords": [
-        "craft",
-        "cms",
-        "craftcms",
-        "craft-plugin",
-        "registrarimportercraft"
-    ],
-    "support": {
-        "docs": "https://github.com/tdlacct/registrar-importer-craft/blob/master/README.md",
-        "issues": "https://github.com/tdlacct/registrar-importer-craft/issues"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "T Luce",
-            "homepage": "https://tdlacct.github.io/"
-        }
-    ],
     "require": {
-        "craftcms/cms": "^4.0.0",
-        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers"
+        "php": ">=8.0.2",
+        "craftcms/cms": "^4.4.7.1"
     },
     "require-dev": {
-      "craftcms/cms": "^4.0.0",
-      "codeception/codeception": "^3.0",
-      "vlucas/phpdotenv": "^3.0"
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
     },
     "autoload": {
         "psr-4": {
-          "wave\\registrarimportercraft\\": "src/"
+            "wavedesign\\crafthrcommencementimportutility\\": "src/"
         }
     },
     "extra": {
-        "name": "RegistrarImporterCraft",
-        "handle": "registrar-importer-craft",
-        "developer": "T Luce",
-        "developerUrl": "https://tdlacct.github.io/",
-        "documentationUrl": "https://github.com/tdlacct/registrar-importer-craft/blob/master/README.md",
-        "changelogUrl": "https://raw.githubusercontent.com/tdlacct/registrar-importer-craft/master/CHANGELOG.md",
-        "components": {
-            "registrarImporterCraftService": "wave\\registrarimportercraft\\services\\RegistrarImporterCraftService"
+        "handle": "_hr-commencement-import-utility",
+        "name": "HR Commencement Import Utility",
+        "developer": "WAVEDesign",
+        "documentationUrl": "",
+        "class": "wavedesign\\crafthrcommencementimportutility\\ImportUtility"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.2"
         },
-        "class": "wave\\registrarimportercraft\\RegistrarImporterCraft"
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
     }
 }
+

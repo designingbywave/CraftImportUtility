@@ -1,18 +1,8 @@
 <?php
-/**
- * RegistrarImporterCraft plugin for Craft CMS 3.x
- *
- * A plugin for importing Excel files
- *
- * @link      https://tdlacct.github.io/
- * @copyright Copyright (c) 2023 T Luce
- */
 
-namespace wave\registrarimportercraft\services;
+namespace wavedesign\crafthrcommencementimportutility\services;
 
-use wave\registrarimportercraft\RegistrarImporterCraft;
-use wave\registrarimportercraft\models\Entry;
-use wave\registrarimportercraft\models\HonorRollEntry;
+use wavedesign\crafthrcommencementimportutility\RegistrarImporterCraft;
 
 use Craft;
 use craft\base\Component;
@@ -21,34 +11,10 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 /**
- * RegistrarImporterCraftService Service
- *
- * All of your plugin’s business logic should go in services, including saving data,
- * retrieving data, etc. They provide APIs that your controllers, template variables,
- * and other plugins can interact with.
- *
- * https://craftcms.com/docs/plugins/services
- *
- * @author    T Luce
- * @package   RegistrarImporterCraft
- * @since     1.0.0
+ * Registrar Importer Craft Service service
  */
 class RegistrarImporterCraftService extends Component
 {
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * This function can literally be anything you want, and you can have as many service
-     * functions as you want
-     *
-     * From any other plugin file, call it like this:
-     *
-     *     RegistrarImporterCraft::$plugin->registrarImporterCraftService->exampleService()
-     *
-     * @return mixed
-     */
-
     public function excelToArray ($filepath) {
         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($filepath);
         $reader->setReadDataOnly(true);

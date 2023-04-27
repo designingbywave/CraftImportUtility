@@ -1,43 +1,8 @@
-# RegistrarImporterCraft plugin for Craft CMS 3.x
+# HR Commencement Import Utility
 
-A plugin for importing Excel files
-
-![Screenshot](resources/img/plugin-logo.png)
+Convert XLSX to HTML
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 4.4.7.1 or later, and PHP 8.0.2 or later.
 
-## Installation
-
-To install the plugin, follow these instructions.
-
-1. Open your terminal and go to your Craft project:
-
-        cd /path/to/project
-
-2. Then tell Composer to load the plugin:
-
-        composer require tdlacct/registrar-importer-craft
-
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for RegistrarImporterCraft.
-
-## RegistrarImporterCraft Overview
-
--Insert text here-
-
-## Configuring RegistrarImporterCraft
-
--Insert text here-
-
-## Using RegistrarImporterCraft
-
--Insert text here-
-
-## RegistrarImporterCraft Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
-
-Brought to you by [T Luce](https://tdlacct.github.io/)

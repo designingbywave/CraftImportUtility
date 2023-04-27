@@ -16,20 +16,12 @@
 {% extends "_layouts/cp" %}
 {% import "_includes/forms" as forms %}
 
-{# {% do view.registerAssetBundle("wave\\registrarimportercraft\\assetbundles\\registrarimportercraft\\RegistrarImporterCraftAsset") %} #}
-{% do view.registerAssetBundle("wave\\registrarimportercraft\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
-
-{# Link for the ? icon at the bottom of the page #}
-{% set docsUrl = "https://github.com/tdlacct/registrar-importer-craft/blob/master/README.md" %}
 
 {# The title of this CP section #}
 {% set title = "RegistrarImporterCraft" %}
 
 {# The URL to this plugin's base CP section #}
-{% set pluginCpUrl = url('registrar-importer-craft') %}
-
-{# Get a URL to an image in our AssetBundle #}
-{% set iconUrl = view.getAssetManager().getPublishedUrl('@wave/registrarimportercraft/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+{% set pluginCpUrl = url('hr-commencement-import-utility') %}
 
 {# Content that should appear in the page header#}
 {% set extraPageHeaderHtml %}
@@ -246,6 +238,21 @@
             navigator.clipboard.writeText(value);
         }
 
+        function doSomething() {
+             try {
+                fetch('/actions/_hr-commencement-import-utility/default/something', {
+                method: 'GET',
+                }).then((response) => response.text)
+                    .then((data) => {
+                    console.log(data)
+                });
+            } catch (error) {
+                error.style.display = "block";
+                options.style.display = "none";
+                loading.style.display = "none";
+            }
+        }
+
         function preview(filename) {
             //console.log(filename);
             if (dropdown.value == '') {
@@ -256,7 +263,7 @@
             const params = new FormData();
             params.append('filepath', filename);
             try {
-                fetch('/actions/registrar-importer-craft/default/convert?' + new URLSearchParams({
+                fetch('/actions/_hr-commencement-import-utility/default/convert?' + new URLSearchParams({
                     path: '/var/www/web/assets/' + filename,
                 }), {
                 method: 'GET',
@@ -297,7 +304,7 @@
             
             console.log("DATATYPE: " + datatype.value);
             try {
-                fetch('/actions/registrar-importer-craft/default/sort', {
+                fetch('/actions/_hr-commencement-import-utility/default/sort', {
                 method: 'POST',
                 body: params,
                 }).then((response) => response.json())
