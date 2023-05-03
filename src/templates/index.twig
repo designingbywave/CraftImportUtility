@@ -23,13 +23,6 @@
 {# The URL to this plugin's base CP section #}
 {% set pluginCpUrl = url('hr-commencement-import-utility') %}
 
-{# Content that should appear in the page header#}
-{% set extraPageHeaderHtml %}
-    <div class="buttons">
-        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('registrar-importer-craft') }}</a>
-    </div>
-{% endset %}
-
 
 {# The content of the CP Section#}
 {% set content %}
@@ -207,7 +200,6 @@
 
         button.addEventListener('click', function on(e) {
             let selectedFile = document.getElementById('file-input').files[0];
-            //console.log(selectedFile);
             const params = new FormData();
 
             params.append('userId', button.dataset.userId);
@@ -230,31 +222,12 @@
             }
             
         });
-        
-        function showTables() {
-        }
 
         function copyToClipboard(value) {
             navigator.clipboard.writeText(value);
         }
 
-        function doSomething() {
-             try {
-                fetch('/actions/_hr-commencement-import-utility/default/something', {
-                method: 'GET',
-                }).then((response) => response.text)
-                    .then((data) => {
-                    console.log(data)
-                });
-            } catch (error) {
-                error.style.display = "block";
-                options.style.display = "none";
-                loading.style.display = "none";
-            }
-        }
-
         function preview(filename) {
-            //console.log(filename);
             if (dropdown.value == '') {
                 return;
             }
@@ -269,7 +242,6 @@
                 method: 'GET',
                 }).then((response) => response.json())
                     .then((data) => {
-                    //let dropdowns = [statedropdown,citydropdown,firstdropdown,lastdropdown,countrydropdown,degreedropdown,divisiondropdown,majoronedropdown,majortwodropdown];
                     json = data;
                     initMapping();
                 });
@@ -284,11 +256,9 @@
 
 
         function generateOutput () {
-            console.log("OUTPUTTING " + datatype.value)
             //mapValues(json)
             let title = "";
             let mode = datatype.value;
-            console.log("MODE:" + mode)
 
             if (datatype.value == "honor-roll") {
                 title = "Dean's Honor Roll"
@@ -302,14 +272,12 @@
             params.append('title',title);
             params.append('datamode',mode)
             
-            console.log("DATATYPE: " + datatype.value);
             try {
                 fetch('/actions/_hr-commencement-import-utility/default/sort', {
                 method: 'POST',
                 body: params,
                 }).then((response) => response.json())
                     .then((data) => {
-                        console.log(data);
                         output = data;
                         previewHTML.innerHTML = data[1];
                         previewPress.innerHTML = data[2];
@@ -416,8 +384,6 @@
 
           
         function mapValues (data,dropdown) {
-            //console.log(data);
-            //console.log(dropdown);
             if (dropdown != null) {
                 const selectedOption = dropdown.options[dropdown.selectedIndex];
                 const select = JSON.parse(selectedOption.value);
@@ -483,7 +449,6 @@
                     mappeddata.push(tempobj);
                 }
             });
-            //console.log(mappeddata);
             sortedjson = mappeddata;
             generateOutput();
             generateTable();
@@ -517,7 +482,6 @@
                     let option = document.createElement("option");
                     option.text = key;
                     option.value = JSON.stringify([element, key]);
-                    //console.log(option.value);
                     dropdown.appendChild(option);
 
                     switch(element) {
@@ -598,10 +562,3 @@
 
     </script>
 {% endset %}
-
-{% js %}
-
-
-
-{% endjs %}
-

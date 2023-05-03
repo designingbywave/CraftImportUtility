@@ -168,8 +168,9 @@ class RegistrarImporterCraftService extends Component
     }
 
     
+    //Commissions requires sorting by degree type
 
-    public function multiSortComm($data,$press) {
+    public function sortByDegree($data,$press) {
         $undergrad = array();
         $grad = array();
         $doc = array();

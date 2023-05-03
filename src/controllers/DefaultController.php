@@ -48,10 +48,10 @@ use ZipArchive;
  * Action methods begin with the prefix “action”, followed by a description of what
  * the method does (for example, actionSaveIngredient()).
  *
- * https://craftcms.com/docs/plugins/controllers
+
  *
- * @author    T Luce
- * @package   RegistrarImporterCraft
+ * @author    WAVE Design
+ * @package   HRCraftImportUtility
  * @since     1.0.0
  */
 class DefaultController extends Controller
@@ -70,31 +70,7 @@ class DefaultController extends Controller
     // Public Methods
     // =========================================================================
 
-    /**
-     * Handle a request going to our plugin's index action URL,
-     * e.g.: actions/registrar-importer-craft/default
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $result = 'Welcome to the DefaultController actionIndex() method';
-
-        return $result;
-    }
-
-    /**
-     * Handle a request going to our plugin's actionDoSomething URL,
-     * e.g.: actions/registrar-importer-craft/default/do-something
-     *
-     * @return mixed
-     */
-    public function actionSomething()
-    {
-        $result = 'Welcome to the new Craft plugin';
-
-        return $result;
-    }
+    //Convert Excel file to JSON
 
     public function actionConvert(string $path) {
         //$path = Craft::$app->request->getBodyParam('filepath');
@@ -105,6 +81,8 @@ class DefaultController extends Controller
         return $result;
     }
 
+    //Sort the data from the JSON 
+    
     public function actionSort() {
         $data = Craft::$app->request->getBodyParam('data');
         $title = Craft::$app->request->getBodyParam('title');
@@ -118,40 +96,21 @@ class DefaultController extends Controller
 
             return json_encode([$htmloutput_readable,$htmloutput,$press_release,$mode]);
         } else {
-            $htmloutput = $services->multiSortComm($data,false);
+            $htmloutput = $services->sortByDegree($data,false);
             $htmloutput_readable =  htmlspecialchars($htmloutput);
-            $press_release = $services->multiSortComm($data,true);
+            $press_release = $services->sortByDegree($data,true);
 
             return json_encode([$htmloutput_readable,$htmloutput,$press_release,$mode]);
         }
     }
 
-    public function actionFile() {
-        $body = Craft::$app->request->getBodyParam('filepath');
-        echo $body;
-    }
+    //Upload an Excel file to the server
 
     public function actionExcelUpload() {
         $file = Craft::$app->request->getBodyParam('file');
         $folder = Craft::$app->request->getBodyParam('folder');
         $services = RegistrarImporterCraft::getInstance()->CraftService;
         $result = $services->uploadNewAsset($file,$folder);
-    }
-
-    public function actionParam() {
-        $uploadedFile = UploadedFile::getInstanceByName('assets-upload');
-
-        if (!$uploadedFile) {
-            return('No file was uploaded');
-        }
-
-        $folderId = (int)$this->request->getBodyParam('folderId') ?: null;
-        $fieldId = (int)$this->request->getBodyParam('fieldId') ?: null;
-
-
-
-        return($this->request->getBodyParam('folderId').$this->request->getBodyParam('fieldId'));
-
     }
     
     
