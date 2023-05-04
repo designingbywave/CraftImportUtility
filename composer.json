@@ -4,7 +4,7 @@
     "type": "craft-plugin",
     "require": {
         "php": ">=8.0.2",
-        "craftcms/cms": "^3.8.0.0",
+        "craftcms/cms": "^3.0.0",
         "phpoffice/phpspreadsheet": "*"
     },
     "require-dev": {
