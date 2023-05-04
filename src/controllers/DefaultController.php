@@ -93,14 +93,16 @@ class DefaultController extends Controller
             $htmloutput = $services->sortHonorRoll($data,$title,false);
             $htmloutput_readable =  htmlspecialchars($htmloutput);
             $press_release = $services->sortHonorRoll($data,$title,true);
+            $press_release_readable = htmlspecialchars($press_release);
 
-            return json_encode([$htmloutput_readable,$htmloutput,$press_release,$mode]);
+            return json_encode([$htmloutput_readable,$htmloutput,$press_release,$press_release_readable]);
         } else {
             $htmloutput = $services->sortByDegree($data,false);
             $htmloutput_readable =  htmlspecialchars($htmloutput);
             $press_release = $services->sortByDegree($data,true);
+            $press_release_readable = htmlspecialchars($press_release);
 
-            return json_encode([$htmloutput_readable,$htmloutput,$press_release,$mode]);
+            return json_encode([$htmloutput_readable,$htmloutput,$press_release,$press_release_readable]);
         }
     }
 
