@@ -106,9 +106,9 @@ class DefaultController extends Controller
 
     //Upload an Excel file to the server
 
-    public function actionExcelUpload() {
-        $file = Craft::$app->request->getBodyParam('file');
-        $folder = Craft::$app->request->getBodyParam('folder');
+    public function actionUpload() {
+        $user = Craft::$app->request->getBodyParam('userId');
+        $file = Craft::$app->request->getBodyParam('selectedFile');
         $services = RegistrarImporterCraft::getInstance()->CraftService;
         $result = $services->uploadNewAsset($file,$folder);
     }
