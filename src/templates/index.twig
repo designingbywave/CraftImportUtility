@@ -86,7 +86,14 @@
         <div id="file-input-box" style="display: none; padding: 10px 0 10px 0;">
             <input type="file" id="file-input" accept=".xls,.xlsx" />
             <div style="padding: 10px 0 10px 0;" >
-                <button class="btn" id="preview-button" data-user-id="{{ currentUser.id }}" data-csrfdata="{{ craft.app.request.getCsrfToken() }}"  data-csrfname="{{ craft.app.config.general.csrfTokenName }}">Upload File</button>
+                <button 
+                class="btn" 
+                id="preview-button" 
+                data-user-id="{{ currentUser.id }}" 
+                data-csrfdata="{{ craft.app.request.getCsrfToken() }}"  
+                data-csrfname="{{ craft.app.config.general.csrfTokenName }}"
+                folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
+                fieldId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
             </div>
         </div>
     </div>
@@ -206,8 +213,8 @@
 
             params.append('userId', button.dataset.userId);
             params.append(button.dataset.csrfname, button.dataset.csrfdata);
-            params.append('folderId',1);
-            params.append('fieldId',1);
+            params.append('folderId',button.dataset.folderId);
+            params.append('fieldId',button.dataset.fieldId);
             params.append('assets-upload',selectedFile);
             
             if (dropdown.value == 'new') {
