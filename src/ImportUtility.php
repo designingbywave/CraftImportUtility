@@ -46,6 +46,19 @@ class ImportUtility extends Plugin
         ];
     }
 
+    protected function createSettingsModel()
+    {
+        return new \wavedesign\crafthrcommencementimportutility\models\Settings();
+    }
+
+    protected function settingsHtml()
+    {
+        return \Craft::$app->getView()->renderTemplate(
+            'wavedesign\crafthrcommencementimportutility\settings',
+            [ 'settings' => $this->getSettings() ]
+        );
+    }
+
     public function init()
     {
         parent::init();
