@@ -67,7 +67,7 @@
         <h2>File Upload</h2>
         <div style="display: inline;">
         <label for="files">Select asset:</label>
-        <div id="asset-settings" folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings()}}" ></div>
+        <div id="asset-settings" folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().FolderId}}" ></div>
         <select name="files" id="file-dropdown" onchange="checkDropdown(this)" style="border: 1px solid black">
             <option value="">None</option>
             {% for asset in craft.assets.all() %}
@@ -165,9 +165,6 @@
         const datatype = document.getElementById('data-type');
         const comm = ["State","City","First Name","Last Name", "Diploma Name", "Country","Division","Degree","Major 1","Major 2"];
         const honorroll = ["State","City","First Name","Last Name"];
-
-        const PluginSettings = craft.hr-commencement-import-utility.settings;
-        const SettingValue = PluginSettings.assetpath;
         
         let json = {};
         let sortedjson = {};

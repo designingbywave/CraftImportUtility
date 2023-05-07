@@ -6,12 +6,13 @@ use craft\base\Model;
 
 class Settings extends Model
 {
-    public $assetpath = "/assets";
+    public $folderId = 1;
+    public $fieldId = 1;
 
     public function rules(): array
     {
         return [
-            [['assetpath'], 'required'],
+            [['folderId,fieldId'], 'required'],
             // ...
         ];
     }
