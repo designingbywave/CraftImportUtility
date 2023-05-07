@@ -54,7 +54,7 @@ class ImportUtility extends Plugin
     protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
-            '@wavedesign/crafthrcommencementimportutility/templates/settings.twig',
+            '@wavedesign/crafthrcommencementimportutility/templates/settings',
             [ 'settings' => $this->getSettings() ]
         );
     }
