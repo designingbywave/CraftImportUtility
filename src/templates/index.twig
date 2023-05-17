@@ -216,7 +216,7 @@
             params.append('folderId',button.dataset.folderId);
             params.append('fieldId',button.dataset.fieldId);
             params.append('assets-upload',selectedFile);
-            
+            console.log(params);
             if (dropdown.value == 'new') {
                 fetch('/actions/assets/upload/', {
                     method: 'POST',
@@ -225,6 +225,7 @@
                     },
                     body: params,
                     }).then((response) => response.json())
+                    console.log(response);
                     .then((data) => preview(data.filename));
             } else {
                 preview(dropdown.value);
