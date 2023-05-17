@@ -225,8 +225,10 @@
                     },
                     body: params,
                     }).then((response) => response.json())
-                    console.log(response);
-                    .then((data) => preview(data.filename));
+                    .then((data) => { 
+                    console.log(data);
+                    preview(data.filename);
+            });
             } else {
                 preview(dropdown.value);
             }
