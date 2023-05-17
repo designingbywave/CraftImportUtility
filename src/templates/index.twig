@@ -92,8 +92,8 @@
                 data-user-id="{{ currentUser.id }}" 
                 data-csrfdata="{{ craft.app.request.getCsrfToken() }}"  
                 data-csrfname="{{ craft.app.config.general.csrfTokenName }}"
-                data-folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
-                data-fieldId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
+                data-folderid="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
+                data-fieldid="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
             </div>
         </div>
     </div>
@@ -213,8 +213,8 @@
 
             params.append('userId', button.dataset.userId);
             params.append(button.dataset.csrfname, button.dataset.csrfdata);
-            params.append('folderId',button.dataset.folderId);
-            params.append('fieldId',button.dataset.fieldId);
+            params.append('folderId',button.dataset.folderid);
+            params.append('fieldId',button.dataset.fieldid);
             params.append('assets-upload',selectedFile);
             console.log(params);
             if (dropdown.value == 'new') {
