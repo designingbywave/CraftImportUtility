@@ -92,8 +92,8 @@
                 data-user-id="{{ currentUser.id }}" 
                 data-csrfdata="{{ craft.app.request.getCsrfToken() }}"  
                 data-csrfname="{{ craft.app.config.general.csrfTokenName }}"
-                folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
-                fieldId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
+                data-folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
+                data-fieldId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
             </div>
         </div>
     </div>
