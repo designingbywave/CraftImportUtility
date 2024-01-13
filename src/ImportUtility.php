@@ -76,17 +76,5 @@ class ImportUtility extends Plugin
                 $event->rules['siteActionTrigger1'] = '_hr-commencement-import-utility/default';
             }
         );
-
-        // Defer most setup tasks until Craft is fully initialized
-        Craft::$app->onInit(function() {
-            $this->attachEventHandlers();
-            // ...
-        });
-    }
-
-    private function attachEventHandlers(): void
-    {
-        // Register event handlers here ...
-        // (see https://craftcms.com/docs/4.x/extend/events.html to get started)
     }
 }
