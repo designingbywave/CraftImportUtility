@@ -21,22 +21,10 @@ use wavedesign\crafthrcommencementimportutility\services\RegistrarImporterCraftS
  * @property-read RegistrarImporterCraft $registrarImporterCraft
  * @property-read RegistrarImporterCraftService $registrarImporterCraftService
  */
-class ImportUtility extends Plugin
+class Plugin extends \craft\base\Plugin
 {
     public string $schemaVersion = '1.0.0';
-
-        /**
-     * Set to `true` if the plugin should have a settings view in the control panel.
-     *
-     * @var bool
-     */
     public bool $hasCpSettings = true;
-
-    /**
-     * Set to `true` if the plugin should have its own section (main nav item) in the control panel.
-     *
-     * @var bool
-     */
     public bool $hasCpSection = true;
 
     public static function config(): array
