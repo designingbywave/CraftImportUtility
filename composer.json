@@ -1,7 +1,7 @@
 {
     "name": "wave-design/craft-hr-commencement-import-utility",
     "description": "Convert XLSX to HTML",
-    "version": "1.6.0",
+    "version": "1.8.0",
     "type": "craft-plugin",
     "require": {
         "php": ">=8.0.2",
@@ -22,7 +22,7 @@
         "name": "HR Commencement Import Utility",
         "developer": "WAVEDesign",
         "documentationUrl": "",
-        "class": "wavedesign\\crafthrcommencementimportutility\\Plugin"
+        "class": "wavedesign\\crafthrcommencementimportutility\\ImportUtility"
     },
     "scripts": {
         "check-cs": "ecs check --ansi",
