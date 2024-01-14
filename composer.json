@@ -22,7 +22,7 @@
         "name": "HR Commencement Import Utility",
         "developer": "WAVEDesign",
         "documentationUrl": "",
-        "class": "wavedesign\\crafthrcommencementimportutility\\ImportUtility"
+        "class": "wavedesign\\crafthrcommencementimportutility\\Plugin"
     },
     "scripts": {
         "check-cs": "ecs check --ansi",
