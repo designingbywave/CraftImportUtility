@@ -20,7 +20,7 @@ use wavedesign\crafthrcommencementimportutility\services\RegistrarImporterCraftS
  * @property-read RegistrarImporterCraft $registrarImporterCraft
  * @property-read RegistrarImporterCraftService $registrarImporterCraftService
  */
-class ImportUtility extends \craft\base\Plugin
+class Plugin extends \craft\base\Plugin
 {
     public string $schemaVersion = '1.0.0';
     public bool $hasCpSettings = true;
