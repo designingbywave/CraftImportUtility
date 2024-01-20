@@ -3,7 +3,6 @@
 namespace wavedesign\crafthrcommencementimportutility;
 
 use Craft;
-use craft\base\Plugin;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
 use craft\console\Application as ConsoleApplication;
@@ -21,7 +20,7 @@ use wavedesign\crafthrcommencementimportutility\services\RegistrarImporterCraftS
  * @property-read RegistrarImporterCraft $registrarImporterCraft
  * @property-read RegistrarImporterCraftService $registrarImporterCraftService
  */
-class ImportUtility extends Plugin
+class Plugin extends \craft\base\Plugin
 {
     public  $schemaVersion = '1.0.0';
 
