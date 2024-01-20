@@ -23,7 +23,7 @@ use wavedesign\crafthrcommencementimportutility\services\RegistrarImporterCraftS
  */
 class ImportUtility extends Plugin
 {
-    public string $schemaVersion = '1.0.0';
+    public  $schemaVersion = '1.0.0';
 
 
     public  $hasCpSettings = true;
@@ -58,20 +58,8 @@ class ImportUtility extends Plugin
             'CraftService' => services\RegistrarImporterCraftService::class,
         ]);
 
-               // Register our site routes
-        Event::on(
-            UrlManager::class,
-            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = '_hr-commencement-import-utility/default';
-            }
-        );
-
-        // Defer most setup tasks until Craft is fully initialized
-        Craft::$app->onInit(function() {
-            $this->attachEventHandlers();
-            // ...
-        });
+        $this->attachEventHandlers();
+ 
     }
 
     private function attachEventHandlers(): void
