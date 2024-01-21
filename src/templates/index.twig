@@ -67,7 +67,7 @@
         <h2>File Upload</h2>
         <div style="display: inline;">
         <label for="files">Select asset:</label>
-        <div id="asset-settings" folderId="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" ></div>
+        <div id="asset-settings" folderId="{{craft.app.getPlugins().getPlugin('hr-commencement-import-utility').getSettings().folderId}}" ></div>
         <select name="files" id="file-dropdown" onchange="checkDropdown(this)" style="border: 1px solid black">
             <option value="">None</option>
             {% for asset in craft.assets.all() %}
@@ -92,8 +92,8 @@
                 data-user-id="{{ currentUser.id }}" 
                 data-csrfdata="{{ craft.app.request.getCsrfToken() }}"  
                 data-csrfname="{{ craft.app.config.general.csrfTokenName }}"
-                data-folderid="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().folderId}}" 
-                data-fieldid="{{craft.app.getPlugins().getPlugin('_hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
+                data-folderid="{{craft.app.getPlugins().getPlugin('hr-commencement-import-utility').getSettings().folderId}}" 
+                data-fieldid="{{craft.app.getPlugins().getPlugin('hr-commencement-import-utility').getSettings().fieldId}}">Upload File</button>
             </div>
         </div>
     </div>
@@ -252,7 +252,7 @@
             const params = new FormData();
             params.append('filepath', filename);
             try {
-                fetch('/actions/_hr-commencement-import-utility/default/convert?' + new URLSearchParams({
+                fetch('/actions/hr-commencement-import-utility/default/convert?' + new URLSearchParams({
                     path: '/var/www/web/assets/' + filename,
                 }), {
                 method: 'GET',
@@ -289,7 +289,7 @@
             params.append('datamode',mode)
             
             try {
-                fetch('/actions/_hr-commencement-import-utility/default/sort', {
+                fetch('/actions/hr-commencement-import-utility/default/sort', {
                 method: 'POST',
                 body: params,
                 }).then((response) => response.json())

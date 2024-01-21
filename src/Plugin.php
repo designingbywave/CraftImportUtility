@@ -43,7 +43,7 @@ class Plugin extends \craft\base\Plugin
     protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
-            '_hr-commencement-import-utility/settings',
+            'hr-commencement-import-utility/settings',
             [ 'settings' => $this->getSettings() ]
         );
     }
