@@ -72,7 +72,7 @@
             <option value="">None</option>
             {% for asset in craft.assets.all() %}
                 {% if asset.extension == "xls" or asset.extension == "xlsx" %}
-                    <option value="{{ asset.filename }}">{{ asset.filename }}</option>
+                    <option value="{{ asset.getUrl() }}">{{ asset.filename }}</option>
                 {% endif %}
             {% endfor %}
             <option value="new">New File...</option>
@@ -226,8 +226,8 @@
                     body: params,
                     }).then((response) => response.json())
                     .then((data) => { 
-                    console.log(data);
-                    preview(data.filename);
+                    //console.log(data);
+                    location.reload();
             });
             } else {
                 preview(dropdown.value);
@@ -253,7 +253,7 @@
             params.append('filepath', filename);
             try {
                 fetch('/actions/hr-commencement-import-utility/default/convert?' + new URLSearchParams({
-                    path: '/var/www/web/assets/' + filename,
+                    path: filename,
                 }), {
                 method: 'GET',
                 }).then((response) => response.json())

@@ -1,7 +1,7 @@
 {
     "name": "craftcms/hr-commencement-import-utility",
     "description": "Convert XLSX to HTML",
-    "version": "2.5.0",
+    "version": "2.6.0",
     "type": "craft-plugin",
     "require": {
         "php": ">=8.0.2",

@@ -1,4 +1,5 @@
 {% import "_includes/forms" as forms %}
+<input type="hidden" name="action" value="plugins/save-plugin-settings">
 
 {{ forms.textField({
   first: true,
@@ -11,6 +12,13 @@
   first: true,
   label: "fieldId",
   name: 'fieldId',
-  value: settings.folderId
+  value: settings.fieldId
+}) }}
+
+{{ forms.textField({
+  first: true,
+  label: "filePath",
+  name: 'filePath',
+  value: settings.filePath
 }) }}
 

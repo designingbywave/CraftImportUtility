@@ -16,9 +16,11 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class RegistrarImporterCraftService extends Component
 {
     public function excelToArray ($filepath) {
-        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($filepath);
+        $file = file_get_contents($filepath);
+        file_put_contents('file.xlsx', $file);
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile(getcwd().'/file.xlsx');
         $reader->setReadDataOnly(true);
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($filepath);
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('file.xlsx');
 
         $worksheet = $spreadsheet->getSheet($spreadsheet->getFirstSheetIndex());
         $sheetData = $worksheet->toArray();
@@ -45,7 +47,7 @@ class RegistrarImporterCraftService extends Component
             $data[] = array_combine($keys, $riga);
         }
         
-
+        unlink('file.xlsx');
         return json_encode($data);
     }
 

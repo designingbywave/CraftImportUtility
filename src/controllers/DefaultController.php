@@ -2,7 +2,7 @@
 
 namespace wavedesign\crafthrcommencementimportutility\controllers;
 
-use wavedesign\crafthrcommencementimportutility\ImportUtility;
+use wavedesign\crafthrcommencementimportutility\Plugin;
 
 use Craft;
 use craft\web\Controller;
@@ -51,7 +51,7 @@ use ZipArchive;
 
  *
  * @author    WAVE Design
- * @package   HRCraftImportUtility
+ * @package   HRCraftPlugin
  * @since     1.0.0
  */
 class DefaultController extends Controller
@@ -60,12 +60,7 @@ class DefaultController extends Controller
     // Protected Properties
     // =========================================================================
 
-    /**
-     * @var    bool|array Allows anonymous access to this controller's actions.
-     *         The actions must be in 'kebab-case'
-     * @access protected
-     */
-    protected array|int|bool $allowAnonymous = ['index', 'do-something', 'simple','file'];
+    protected $allowAnonymous = ['index', 'do-something', 'simple','file'];
 
     // Public Methods
     // =========================================================================
@@ -75,7 +70,7 @@ class DefaultController extends Controller
     public function actionConvert(string $path) {
         //$path = Craft::$app->request->getBodyParam('filepath');
         
-        $services = ImportUtility::getInstance()->CraftService;
+        $services = Plugin::getInstance()->CraftService;
         $result = $services->excelToArray($path);
 
         return $result;
@@ -87,7 +82,7 @@ class DefaultController extends Controller
         $data = Craft::$app->request->getBodyParam('data');
         $title = Craft::$app->request->getBodyParam('title');
         $mode = Craft::$app->request->getBodyParam('datamode');
-        $services = ImportUtility::getInstance()->CraftService;
+        $services = Plugin::getInstance()->CraftService;
 
         if ($mode == "honor-roll") {
             $htmloutput = $services->sortHonorRoll($data,$title,false);
