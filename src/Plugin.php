@@ -22,11 +22,11 @@ use wavedesign\crafthrcommencementimportutility\services\RegistrarImporterCraftS
  */
 class Plugin extends \craft\base\Plugin
 {
-    public  $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.0';
 
 
-    public  $hasCpSettings = true;
-    public  $hasCpSection = true;
+    public bool $hasCpSettings = true;
+    public bool $hasCpSection = true;
 
     public static function config(): array
     {
